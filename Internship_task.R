@@ -113,7 +113,7 @@ ggplot(data, aes(y = factor(contact, labels = c("unknown", "telephone","cellular
 #Taip pat galima pastebėti išsilavinimo lygio pasiskirtymą tarp skirtingų darbo pozicijų, pavyzdžiui, dauguma
 #vadybininko poziciją užimančių individų turi aukštąjį išsilavinimą, tuo tarpu, likusiose pozicijose
 #pasiskirsto žmonės, įgyję vidurinį išssilavinimą. Didžioji dalis žmonių, turintys vidurinį išsilavinimą
-#priklauso darbininkų klasėj. Taip pat, pastebima, jog didžioji dalis darbininkų klasės darbuotojų kaip ir administracijos ir paslaugų
+#priklauso darbininkų klasei. Taip pat, pastebima, jog didžioji dalis darbininkų klasės darbuotojų kaip ir administracijos, ir paslaugų
 #yra pasiėmę būsto paskolą. Priešingai, didžioji dalis namų šeimininkių, bedarbių ir pensijinio amžiaus žmonių šiuo metu neturi būsto paskolos. 
 abc <- data %>% group_by(job, education, housing) %>% count()
 abc$housing <- factor(abc$housing,levels = c("yes", "no"))
@@ -138,7 +138,7 @@ test   <- data[!sample, ]
 model <- glm(deposit ~ age + job + education + housing + balance + duration,
               family=binomial(link = "logit"), data = train)
 summary(model)
-#Amžius ir nežinomas ar nedirbančiojo statusas neturi statistiškai reikšmingos įtakos
+#Amžius ir nežinomas ar nedirbančiojo asmens statusas neturi statistiškai reikšmingos įtakos
 #indėlio pasirinkimui. Visi likusieji kintamieji yra statistiškai reikšmingi. 
 #Keleta interpretacijų:
 #Kaip ir buvo tikėtasi, kontaktavimo laikas turi teigiamą įtaką tikimybei.
